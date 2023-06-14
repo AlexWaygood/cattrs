@@ -54,7 +54,7 @@ except ImportError:
 
 def is_typeddict(cls):
     """Thin wrapper around typing(_extensions).is_typeddict"""
-    return _is_typeddict(get_origin(cls))
+    return _is_typeddict(getattr(cls, "__origin__", cls))
 
 
 def has(cls):
